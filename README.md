@@ -52,9 +52,11 @@ main().then(() => {
 ```
 
 ## Mint TronPunks with TokenPocket Wallet
+
+ - Pick a base64_data from punk_data.json, copy the base64 that starts with "data:"
  - Receiver address:T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb.
  - Transfer amount 0.000001 TRX
- - Click on Advanced Settings and fill in `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAkElEQVR42mNgGAWjAAT+f+v7jw3TzGCqWUKMBWRbQsjQdd2JlFmCyyCYGAxTxQJkw5D5ZFuAy7XYMEUWwAwJqDEGY2SDYWJUsQAkFNvtjGIBTGxwBxEpFpBkCT4LQNIUWYArUxHjA7J9AbMkXpYTjinKZOh24XI9SI4qpTW2sKeW4Sg+gBpKVcMZaOlyqlgAAF9AOnOqpdBpAAAAAElFTkSuQmCC`
+ - Click on Advanced Settings and fill in the base64_data chosen, for example punk 0000: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAkElEQVR42mNgGAWjAAT+f+v7jw3TzGCqWUKMBWRbQsjQdd2JlFmCyyCYGAxTxQJkw5D5ZFuAy7XYMEUWwAwJqDEGY2SDYWJUsQAkFNvtjGIBTGxwBxEpFpBkCT4LQNIUWYArUxHjA7J9AbMkXpYTjinKZOh24XI9SI4qpTW2sKeW4Sg+gBpKVcMZaOlyqlgAAF9AOnOqpdBpAAAAAElFTkSuQmCC`
 
 
 
