@@ -1,6 +1,9 @@
 # TronPunks
 TronPunks are byte perfect punks on the TRON blockchain using the hex data inscriptions format. Just like TRC20 [see here](https://github.com/TRC20org/TRC20)
 
+## Indexer
+As I said on tg TRXI group, working on this
+
 ## Number of TronPunks
 10,000
 
@@ -48,7 +51,7 @@ main().then(() => {
     });
 ```
 
-## Mint TRXI with TokenPocket Wallet
+## Mint TronPunks with TokenPocket Wallet
  - Receiver address:T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb.
  - Transfer amount 0.000001 TRX
  - Click on Advanced Settings and fill in `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAkElEQVR42mNgGAWjAAT+f+v7jw3TzGCqWUKMBWRbQsjQdd2JlFmCyyCYGAxTxQJkw5D5ZFuAy7XYMEUWwAwJqDEGY2SDYWJUsQAkFNvtjGIBTGxwBxEpFpBkCT4LQNIUWYArUxHjA7J9AbMkXpYTjinKZOh24XI9SI4qpTW2sKeW4Sg+gBpKVcMZaOlyqlgAAF9AOnOqpdBpAAAAAElFTkSuQmCC`
@@ -56,7 +59,7 @@ main().then(() => {
 
 
 ## Idea for developing indexer
-1. Get all transactions of black hole address and see which unique mints are first.
+1. Get all transactions (of black hole address) and see which unique mints are first.
 2. Use the FULL NODE HTTP API to get the `from`,`to`,`data` field of each txid, match all mint inscriptions. For more details, please refer to the following link: https://developers.tron.network/reference/wallet-gettransactionbyid.
 3. The obtained addresses need to undergo encoding conversion to Tron wallet addresses. For more details, please refer to the following link: https://www.btcschools.net/tron/tron_tool_base58check_hex.php.
 
