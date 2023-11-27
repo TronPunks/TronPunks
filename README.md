@@ -1,8 +1,11 @@
 # TronPunks
 TronPunks are byte perfect punks on the TRON blockchain using the hex data inscriptions format. Just like TRC20 [see here](https://github.com/TRC20org/TRC20)
 
+## What punks are available?
+Look at `mints.json` for the ones already taken, the ids that are not in this file can still be minted. But be careful because it can still be a duplicate when people mint the same one at the same time.
+
 ## Indexer
-As I said on tg TRXI group, working on this
+In progress.
 
 ## Number of TronPunks
 10,000
