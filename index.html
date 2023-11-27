@@ -261,7 +261,7 @@
                 all_punks = await fetch('./punk-data.json').then(res=>res.json()).catch(e=>console.log(e))
                 punks = await fetch('./mints.json').then(res=>res.json()).catch(e=>console.log(e))
     
-                document.getElementById('minted_amount').textContent = punks.length + " / 10000"
+                document.getElementById('minted_amount').textContent = punks.length + " / 10000 (updated until block 56826856)"
 
                 // load first page by default
                 showItems(currentPage)
