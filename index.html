@@ -258,10 +258,12 @@
             )
 
             async function init() {
-                all_punks = await fetch('./punk-data.json').then(res=>res.json()).catch(e=>console.log(e))
-                punks = await fetch('./mints.json').then(res=>res.json()).catch(e=>console.log(e))
+                const block = 56826856
+
+                all_punks = await fetch(`./punk-data.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
+                punks = await fetch(`./mints.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
     
-                document.getElementById('minted_amount').textContent = punks.length + " / 10000 (updated until block 56826856)"
+                document.getElementById('minted_amount').textContent = `${punks.length} / 10000 (updated until block ${block})`
 
                 // load first page by default
                 showItems(currentPage)
