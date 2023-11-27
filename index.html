@@ -10,7 +10,7 @@
                 justify-content: center;
             }
 
-            #result ul {
+            .item-list ul {
                 list-style-type: none none;
                 padding: 0;
                 margin: 0;
@@ -20,7 +20,7 @@
                 justify-content: center;
             }
 
-            #result ul li {
+            .item-list ul li {
                 display: flex;
                 flex-direction: column;
                 width: 80px;
@@ -32,18 +32,18 @@
                 position: relative;
             }
 
-            #result ul li span {
+            .item-list ul li span {
                 font-weight: bold;
                 font-size: 0.8rem;
                 margin-bottom: 0;
             }
 
-            #result ul li.taken {
+            /* .item-list ul li.taken {
                 background: #c00;
                 opacity: 0.1;
-            }
+            } */
 
-            #result ul li .pfp {
+            .item-list ul li .pfp {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -54,7 +54,7 @@
                 text-decoration: none;
             }
 
-            #result ul li .pfp:hover {
+            .item-list ul li .pfp:hover {
                 text-decoration: underline;
             } 
 
@@ -73,107 +73,123 @@
         <div class="container-fluid">
             <h2>TronPunks</h2>
 
+            <h4 style="color: red;">Minted out, do NOT mint anymore!!!</h4>
+
             <h6 id="minted_amount"></h6>
 
-            <nav aria-label="Page navigation">
-                <ul class="pagination text-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#prev">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#1">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#2">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#3">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#4">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#5">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#6">6</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#7">7</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#8">8</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#9">9</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#10">10</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#next">Next</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div id="result" class="mb-4">Loading data..</div>
+            <div class="row justify-content-md-center mb-3">
+                <div class="col col-6">
+                    <input id="address" class="form-control" type="text" placeholder="Search address">
+                </div>
+            </div>
 
             <div id="modal" class="modal" tabindex="-1">
                 <div class="modal-dialog">
-                  <div class="modal-content">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Base64 code for TronPunk</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Inscription id for TronPunk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="modal-body" class="modal-body">
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                  </div>
                 </div>
-              </div>
+                </div>
+            </div>
 
-            <nav aria-label="Page navigation">
-                <ul class="pagination text-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#prev">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#1">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#2">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#3">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#4">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#5">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#6">6</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#7">7</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#8">8</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#9">9</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#10">10</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#next">Next</a>
-                    </li>
-                </ul>
-            </nav>
+            <div id="overview">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination text-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#prev">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#1">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#2">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#3">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#4">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#5">5</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#6">6</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#7">7</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#8">8</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#9">9</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#10">10</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#next">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="result" class="item-list mb-4">Loading data..</div>
+
+                <nav aria-label="Page navigation">
+                    <ul class="pagination text-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#prev">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#1">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#2">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#3">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#4">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#5">5</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#6">6</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#7">7</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#8">8</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#9">9</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#10">10</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#next">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="minted-punks" style="display:none;">
+                <h4></h4>
+
+                <div class="item-list"></div>
+            </div>
         </div>
 
         <script>
@@ -182,6 +198,7 @@
 
             const itemsPerPage = 1000
             const result = document.querySelector('#result')
+            const mintedPunks = document.querySelector('#minted-punks')
             let numberOfPages = 10
 
             let currentPage = 1
@@ -212,7 +229,7 @@
                     const base64 = item.base64_data
 
                     html += `
-                    <li class="item ${has_mint ? 'taken' : ''}" title="${has_mint ? `already minted by ${has_mint.minter}` : 'still available'}">
+                    <li data-minter="${has_mint.minter}" class="item ${has_mint ? 'taken' : ''}" title="${has_mint ? `already minted by ${has_mint.minter}` : 'still available'}">
                         <img class="pixel-image" data-punk-id="${item.punk_id}" src="${base64}">
                         <span class="h6">${item.punk_id}</span>
                         <a href="https://cryptopunks.app/cryptopunks/cryptopunk${item.punk_id}.png?size=1000&customColor=c23631" class="pfp" target="_blank">pfp</a>
@@ -257,6 +274,44 @@
             }
             )
 
+            const hideItems = () => {
+                document.getElementById('overview').style.display = 'none'
+            }
+
+            const showMints = (minter) => {
+                const filteredPunks = punks.filter(p=>p.minter===minter)
+                
+                mintedPunks.querySelector('h4').textContent = `Minted ${filteredPunks.length} TronPunks`
+                
+                if(filteredPunks.length) {
+                    let imgs = []
+
+                    for(let i=0;i<filteredPunks.length;i++){
+                        imgs.push(all_punks.filter(p=>p.punk_id===filteredPunks[i].id)[0].base64_data)
+                    }
+
+                    let html = '<ul>'
+
+                        imgs.forEach((img, i)=>{
+
+                        html += `
+                        <li>
+                            <img class="pixel-image" src="${img}" data-punk-id="${filteredPunks[i].id}">
+                            <span class="h6">${filteredPunks[i].id}</span>
+                            <a href="https://cryptopunks.app/cryptopunks/cryptopunk${filteredPunks[i].id}.png?size=1000&customColor=c23631" class="pfp" target="_blank">pfp</a>
+                        </li>
+                    `
+                    }
+                    )
+
+                    html += '</ul>'
+
+                    mintedPunks.querySelector('.item-list').innerHTML = html
+                }
+
+                mintedPunks.style.display = 'block'
+            }
+
             async function init() {
                 const block = 56828983
 
@@ -274,10 +329,17 @@
                         const punk_id = e.target.getAttribute('data-punk-id')
                         const modal = new bootstrap.Modal(document.getElementById('modal'), {})
                         const modalBody = document.getElementById('modal-body')
-                        const punk = all_punks.filter(p=>p.punk_id===punk_id)[0]
-                        modalBody.textContent = punk.base64_data
+                        const punk = punks.filter(p=>p.id===punk_id)[0]
+                        modalBody.textContent = `${punk.tx} minted by ${punk.minter}`
                         modal.show()
                     }
+                })
+
+                
+
+                document.getElementById('address').addEventListener('change', function(e) {
+                    hideItems()
+                    showMints(e.target.value)
                 })
             }
 
