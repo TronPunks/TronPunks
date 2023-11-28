@@ -313,7 +313,7 @@
             }
 
             async function init() {
-                const block = 56828983
+                const block = 56828982
 
                 all_punks = await fetch(`./punk-data.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
                 punks = await fetch(`./mints.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
