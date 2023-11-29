@@ -38,11 +38,6 @@
                 margin-bottom: 0;
             }
 
-            /* .item-list ul li.taken {
-                background: #c00;
-                opacity: 0.1;
-            } */
-
             .item-list ul li .pfp {
                 position: absolute;
                 top: 0;
@@ -69,16 +64,17 @@
             }
         </style>
     </head>
-    <body class="bg-dark p-5 text-center">
+    <body class="bg-dark p-1 p-sm-5 text-center">
         <div class="container-fluid">
             <h2>TronPunks</h2>
 
             <h4 style="color: red;">Minted out, do NOT mint anymore!!!</h4>
+            <h5>Click on a punk image to see the inscription id</h5>
 
             <h6 id="minted_amount"></h6>
 
-            <div class="row justify-content-md-center mb-3">
-                <div class="col col-6">
+            <div class="row justify-content-center mb-3">
+                <div class="col col-md-6">
                     <input id="address" class="form-control" type="text" placeholder="Search address">
                 </div>
             </div>
@@ -87,7 +83,7 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title">Inscription id for TronPunk</h5>
+                    <h5 id="modal-title" class="modal-title">Inscription id for TronPunk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="modal-body" class="modal-body">
@@ -225,11 +221,11 @@
                 let html = '<ul>'
 
                 itemsToShow.forEach(item=>{
-                    const has_mint = has_punk_mint(item.punk_id)
+                    const mint = has_punk_mint(item.punk_id)
                     const base64 = item.base64_data
 
                     html += `
-                    <li data-minter="${has_mint.minter}" class="item ${has_mint ? 'taken' : ''}" title="${has_mint ? `already minted by ${has_mint.minter}` : 'still available'}">
+                    <li data-minter="${mint.minter}" title="${mint ? `already minted by ${mint.minter}` : 'still available'}">
                         <img class="pixel-image" data-punk-id="${item.punk_id}" src="${base64}">
                         <span class="h6">${item.punk_id}</span>
                         <a href="https://cryptopunks.app/cryptopunks/cryptopunk${item.punk_id}.png?size=1000&customColor=c23631" class="pfp" target="_blank">pfp</a>
@@ -313,7 +309,7 @@
             }
 
             async function init() {
-                const block = 56828982
+                const block = 56828984
 
                 all_punks = await fetch(`./punk-data.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
                 punks = await fetch(`./mints.json?block=${block}`).then(res=>res.json()).catch(e=>console.log(e))
@@ -328,14 +324,14 @@
                         e.preventDefault()
                         const punk_id = e.target.getAttribute('data-punk-id')
                         const modal = new bootstrap.Modal(document.getElementById('modal'), {})
+                        const modalTitle = document.getElementById('modal-title')
                         const modalBody = document.getElementById('modal-body')
                         const punk = punks.filter(p=>p.id===punk_id)[0]
+                        modalTitle.textContent = `Inscription id for TronPunk ${punk_id}`
                         modalBody.textContent = `${punk.tx} minted by ${punk.minter}`
                         modal.show()
                     }
                 })
-
-                
 
                 document.getElementById('address').addEventListener('change', function(e) {
                     hideItems()
