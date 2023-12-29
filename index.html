@@ -181,7 +181,7 @@
                 </nav>
             </div>
 
-            <div id="minted-punks" style="display:none;">
+            <div id="punks-balances" style="display:none;">
                 <h4></h4>
 
                 <div class="item-list"></div>
@@ -194,7 +194,7 @@
 
             const itemsPerPage = 1000
             const result = document.querySelector('#result')
-            const mintedPunks = document.querySelector('#minted-punks')
+            const punksBalances = document.querySelector('#punks-balances')
             let numberOfPages = 10
 
             let currentPage = 1
@@ -274,16 +274,26 @@
                 document.getElementById('overview').style.display = 'none'
             }
 
-            const showMints = (minter) => {
-                const filteredPunks = punks.filter(p=>p.minter===minter)
+            const get_trxi_punks = async (address) => {
+                return fetch(`https://api.trximarkets.com/api/mainnet/v1/assets/${address}/tronpunk`, {
+                    method: 'GET',
+                    redirect: 'follow'
+                }).then(response => response.json())
+            }
+
+            const showMints = async (minter) => {
+                punksBalances.style.display = 'block'
+                punksBalances.querySelector('h4').textContent = 'Loading'
+
+                const punk_balances = await get_trxi_punks(minter)
                 
-                mintedPunks.querySelector('h4').textContent = `Minted ${filteredPunks.length} TronPunks`
+                punksBalances.querySelector('h4').textContent = `${punk_balances.data.length} TronPunks`
                 
-                if(filteredPunks.length) {
+                if(punk_balances.data.length) {
                     let imgs = []
 
-                    for(let i=0;i<filteredPunks.length;i++){
-                        imgs.push(all_punks.filter(p=>p.punk_id===filteredPunks[i].id)[0].base64_data)
+                    for(let i=0;i<punk_balances.data.length;i++){
+                        imgs.push(all_punks.filter(p=>p.punk_id===punk_balances.data[i].name)[0].base64_data)
                     }
 
                     let html = '<ul>'
@@ -292,9 +302,9 @@
 
                         html += `
                         <li>
-                            <img class="pixel-image" src="${img}" data-punk-id="${filteredPunks[i].id}">
-                            <span class="h6">${filteredPunks[i].id}</span>
-                            <a href="https://cryptopunks.app/cryptopunks/cryptopunk${filteredPunks[i].id}.png?size=1000&customColor=c23631" class="pfp" target="_blank">pfp</a>
+                            <img class="pixel-image" src="${img}" data-punk-id="${punk_balances.data[i].name}">
+                            <span class="h6">${punk_balances.data[i].name}</span>
+                            <a href="https://cryptopunks.app/cryptopunks/cryptopunk${punk_balances.data[i].name}.png?size=1000&customColor=c23631" class="pfp" target="_blank">pfp</a>
                         </li>
                     `
                     }
@@ -302,10 +312,10 @@
 
                     html += '</ul>'
 
-                    mintedPunks.querySelector('.item-list').innerHTML = html
+                    punksBalances.querySelector('.item-list').innerHTML = html
                 }
 
-                mintedPunks.style.display = 'block'
+                punksBalances.style.display = 'block'
             }
 
             async function init() {
